@@ -12,6 +12,7 @@ RUN /usr/local/sbin//install-ngxblocker -x
 RUN chmod +x /usr/local/sbin/setup-ngxblocker
 RUN chmod +x /usr/local/sbin/update-ngxblocker
 RUN /usr/local/sbin/setup-ngxblocker -x -e conf
+RUN openssl dhparam -out /etc/ssl/private/dhparam.pem 4096
 
 EXPOSE 80 443
 RUN apk del wget curl openssl
