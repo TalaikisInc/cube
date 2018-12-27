@@ -1,0 +1,41 @@
+version: "3"
+services:
+  web:
+    build: ./.cube/node/.
+    container_name: node
+    restart: unless-stopped
+    networks:
+      - app-network
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    volumes:
+      - ./:/var/www/app
+    links:
+      - logs
+
+  proxy:
+    build: ./.cube/proxy
+    container_name: proxy
+    restart: unless-stopped
+    networks:
+      - app-network
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /tmp/letsencrypt/www:/tmp/letsencrypt/www
+    links:
+      - node
+
+  logs:
+    build: ./.cube/logs
+    container_name: logs
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
