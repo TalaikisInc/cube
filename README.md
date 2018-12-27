@@ -11,8 +11,20 @@ Dockerized multi (Node.js) apps on one VPS system.
 
 ## How to start
 
+1. Install Docker
+
+```bash
+chmod +x docker-install.sh
+./docker-install.sh
+```
+
 1. Edit master_certs.sh, master_certs_renew.sh, build.sh, .cube/proxy/nginx.conf
-2. Then just run build.sh
+2. Then just run:
+
+```bash
+chmod +x build.sh
+./build.sh
+```
 
 Notes:
 
