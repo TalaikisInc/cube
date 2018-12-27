@@ -28,7 +28,7 @@ chmod +x build.sh
 
 Notes:
 
-* Any global microservices go into .cube/ (examples - mail, proxy).
+* Any global microservices go into .cube/ (examples - [mail](https://github.com/TalaikisInc/email_service), proxy).
 * Apps go into root folder
 * Each app should have set of _slaves/ files.
 
