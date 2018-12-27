@@ -6,4 +6,3 @@ docker run -it \
   -v /var/www/letsencrypt:/var/www/letsencrypt \
   --name proxy \
   -d proxy
-y

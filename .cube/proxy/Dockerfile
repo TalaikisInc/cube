@@ -1,9 +1,7 @@
-FROM ubuntu:18.04
-
-LABEL app.service="proxy"
+FROM nginx:1.15.8-alpine
 
 RUN apt update
-RUN apt install wget nano htop nginx curl openssl -y
+RUN apk add wget curl openssl
 
 COPY ./nginx.conf /etc/nginx
 
@@ -15,8 +13,7 @@ RUN chmod +x /usr/local/sbin/setup-ngxblocker
 RUN chmod +x /usr/local/sbin/update-ngxblocker
 RUN /usr/local/sbin/setup-ngxblocker -x -e conf
 
-USER root
-
 EXPOSE 80 443
+RUN apk del wget curl openssl
 
 CMD ["nginx", "-g", "daemon off;"]
