@@ -34,5 +34,4 @@ Notes:
 
 ## TODO
 
-* Fix nginx blocker.
 * Implement docker-compose
