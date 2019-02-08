@@ -9,6 +9,10 @@ Dockerized multi (Node.js) apps on one VPS system.
 * Node.js
 * PM2
 
+## TODO
+
+* finish docker-compose
+
 ## How to start
 
 1. Install Docker
@@ -31,7 +35,3 @@ Notes:
 * Any global microservices go into .cube/ (examples - [mail](https://github.com/TalaikisInc/email_service), proxy).
 * Apps go into root folder
 * Each app should have set of _slaves/ files.
-
-## TODO
-
-* Implement docker-compose
