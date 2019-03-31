@@ -26,9 +26,6 @@ then
   chmod +x /opt/.cube/mail/build.sh
   chmod +x /opt/.cube/mail/start.sh
 
-  /opt/msg.sh "Generating certificates..."
-  cd /opt && ./master_certs.sh
-
   /opt/msg.sh "Building proxy..."
   cd /opt/.cube/proxy
   ./build.sh
@@ -37,7 +34,7 @@ then
   cd /opt/.cube/mail
   ./build.sh
 
-  for APP in identiform blueblood sales ipfs act nakamoto talaikis ufunc estate-management
+  for APP in identiform blueblood sales ipfs act nakamoto talaikis ufunc estate-management upload-service users-cubed-s3
   do
     /opt/msg.sh "Building $APP..."
     chmod +x /opt/$APP/slave_build.sh
@@ -50,24 +47,27 @@ fi
 if [ "$1" = "start" ]
 then
   /opt/msg.sh "Starting mail..."
-  ./.cube/mail/start.sh
+  cd /opt/.cube/mail
+  ./start.sh
 
-  /opt/msg.sh "Starting proxy..."
-  ./.cube/proxy/start.sh
-
-  for i in identiform,3000 blueblood,3002 sales,3003 ipfs,3004 act,3005 nakamoto,3006 talaikis,3007 ufunc,3008 estate-management,3009
+  for i in identiform,3000 blueblood,3002 sales,3003 ipfs,3004 act,3005 nakamoto,3006 talaikis,3007 ufunc,3008 estate-management,3009 upload-service,3010 users-cubed-s3,3011
   do IFS="," read APP PORT  <<< "${i}"
     docker stop "$APP"
     docker rm "$APP"
-    /opt/msg.sh "Starting $App at $PORT..."
+    /opt/msg.sh "Starting $APP at $PORT..."
     cd /opt/$APP
-    ./slave_start.sh $APP $PORT
+    ./slave_start.sh "$APP" "$PORT"
   done
 
-  /opt/msg.sh "Starting proxy..."
-  /opt/.cube/proxy/start.sh
+  /opt/msg.sh "Starting certs..."
+  cd /opt
+  ./master_certs.sh
 
-  /opt/msg.sh "Starting cert renewal containers..."
+  ./msg.sh "Starting proxy..."
+  cd /opt/.cube/proxy
+  ./start.sh
+
+  /opt/msg.sh "Starting cert renew"
+  cd /opt
   ./master_certs_renew.sh
 fi
-
