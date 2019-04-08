@@ -10,5 +10,5 @@ docker run -d \
   -e "LETSENCRYPT_EMAIL=$EMAIL" \
   -e "LETSENCRYPT_DOMAIN1=$HOST" \
   --name "letsencrypt_$HOST" \
-  --restart always
+  --restart always \
   blacklabelops/letsencrypt
