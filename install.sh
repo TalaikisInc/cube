@@ -11,3 +11,6 @@ sudo apt install cockpit -y
 sudo systemctl enable cockpit.socket
 sudo systemctl start cockpit.socket
 curl https://get.acme.sh | sh
+chmod +x ./.cube/gc/gc.sh
+cd ./.cube/gc/
+./gc.sh
