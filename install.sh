@@ -7,3 +7,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt update
 apt-cache policy docker-ce
 sudo apt install docker-ce -y
+sudo apt install cockpit -y
+sudo systemctl enable cockpit.socket
+sudo systemctl start cockpit.socket
+curl https://get.acme.sh | sh

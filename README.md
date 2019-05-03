@@ -2,24 +2,28 @@
 
 Dockerized multi (Node.js) apps on one VPS system.
 
-## Technology
+## Features
 
-* Nginx
+* Nginx proxy
+* Mail service
+* Phone service (@TODO)
 * Letsencrypt
-* Node.js
-* PM2
+* Node.js + PM2 for apps
+* Monitoring service
 
 ## TODO
 
-* finish docker-compose
+* docker-compose version
+* logging
 
 ## How to start
 
-1. Install Docker
+1. Install
 
 ```bash
-chmod +x docker-install.sh
-./docker-install.sh
+chmod +x install.sh
+./install.sh
+acme.sh --register-account
 ```
 
 1. Edit master_certs.sh, master_certs_renew.sh, build.sh, .cube/proxy/nginx.conf
@@ -29,6 +33,8 @@ chmod +x docker-install.sh
 chmod +x build.sh
 ./build.sh
 ```
+
+3. Access dashboard ```<server_ip>:9090```
 
 Notes:
 
