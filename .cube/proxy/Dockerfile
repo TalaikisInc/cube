@@ -17,7 +17,7 @@ RUN cd /usr/local/sbin && ./setup-ngxblocker
 RUN cd /usr/local/sbin && ./setup-ngxblocker -x
 COPY ./whitelist-ips.conf /etc/nginx/bots.d/whitelist-ips.conf
 COPY ./whitelist-domains.conf /etc/nginx/bots.d/whitelist-domains.conf
-RUN nginx -t
+# RUN nginx -t
 
 EXPOSE 80 443
 RUN apk del wget curl

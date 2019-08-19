@@ -1,2 +1,3 @@
 .cube/mail
 .cube/proxy/dhparam.pem
+.cube/proxy/nginx.conf

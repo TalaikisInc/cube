@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t proxy .
+docker build --no-cache -t proxy .

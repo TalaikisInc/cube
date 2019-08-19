@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://talaikis.com/">
+    <img alt="Talaikis Ltd." src="https://github.com/TalaikisInc/talaikis.com_react/blob/master/media/logo.png" width="455">
+  </a>
+</p>
+
 # Cube
 
 Dockerized multi (Node.js) apps on one VPS system.
@@ -10,6 +16,7 @@ Dockerized multi (Node.js) apps on one VPS system.
 * Letsencrypt
 * Node.js + PM2 for apps
 * Monitoring service
+* Static analysis check of Nginx configuration after Nginx build
 
 ## TODO
 
